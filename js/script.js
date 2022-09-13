@@ -65,7 +65,14 @@ const app = new Vue(
                 } else {
                     this.i = 0
                 }
+            },
 
+            movePrev: function () {
+                if (this.i > 0) {
+                    this.i--
+                } else {
+                    this.i = this.slides.length - 1
+                }
             }
         }
     }
