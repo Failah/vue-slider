@@ -11,15 +11,6 @@ Bonus:
 automaticamente
 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo 
 riprendere quando esce
-
-Consigli del giorno:
-- regola d'oro: riciclare ovunque possibile! Questo significa che per la 
-parte di markup possiamo recuperare html e css dell'esercizio svolto qualche
- giorno fa: è già tutto pronto!
-- il riciclo spesso va a braccetto con le funzioni! Sapendole sfruttare bene, 
-l'esercizio si riduce a poche righe ;)
-- ora abbiamo diversi strumenti in più nelle nostre tasche, che possono 
-tornarci utili per svolgere l'esercizio in una versione più evoluta ed efficace, soprattutto per quando riguarda la struttura dei dati, sfruttiamoli al meglio!
 */
 
 const app = new Vue(
@@ -56,6 +47,12 @@ const app = new Vue(
             ],
 
             i: 0,
+
+            intervalTimer: undefined,
+        },
+
+        mounted() {
+            this.intervalTimer = setInterval(this.moveNext, 2000);
         },
 
         methods: {
@@ -73,6 +70,10 @@ const app = new Vue(
                 } else {
                     this.i = this.slides.length - 1
                 }
+            },
+
+            displayImage: function (ind) {
+                this.i = ind
             }
         }
     }
